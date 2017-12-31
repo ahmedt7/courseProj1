@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+        <head>
+            <title>Add a new contact</title>
+        </head>
+        <body>
+                <form action="#" th:action="@{/addcontact}" method="POST">
+                    <p><label for="name">Name</label>: <input type="text" name="name" id="name"/></p>
+                    <p><label for="number">PhoneNum</label>: <input type="text" name="number" id="number"/></p>
+                    <p><input type="submit" value="Submit" /></p>
+                </form>
+
+                <h2>current contacts ..</h2>
+
+                <ul>
+                    <li th:each="contact : ${contacts}">
+                        <span th:text="${contact.name}">item</span> (phone num:<span th:text="${contact.number}">999</span>)
+                    </li>
+                </ul>
+                <b id="frameID" width="10" height="10" onmouseenter="xss()">click me!</b>
+                <script>
+                    x='...ESCAPE UNTRUSTED DATA BEFORE PUTTING HERE...'
+                    function xss() {
+                        window.location.href = "http://google.com";
+                    }
+
+                </script>
+
+        </body>
+</html>
